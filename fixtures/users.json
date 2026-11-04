@@ -1,0 +1,68 @@
+[
+  {
+    "model": "users.user",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$TD83ZGA9uQcCbVxs3CpQrC$A2s0HmATPgpDrcOhQUYS0yUdrJHXtY4SYVZz1QadEOU=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "alice@test.com",
+      "name": "Алиса",
+      "surname": "Петрова",
+      "avatar": "users/avatars/alice.png",
+      "about": "Fullstack-разработчик. Люблю Python и React.",
+      "phone": "+79991112233",
+      "github_url": "https://github.com/alice-dev",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-01-01T00:00:00Z",
+      "skills": [1, 2, 3],
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$xsl2I1Z3fphH4qD6d6r8QY$R70Sa4uZMBaPCV07ZygaQK6Pu6dw5Jw00pIYLNKpiSU=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "bob@test.com",
+      "name": "Боб",
+      "surname": "Сидоров",
+      "avatar": "users/avatars/bob.png",
+      "about": "DevOps-инженер. Автоматизирую всё, что можно.",
+      "phone": "+79994445566",
+      "github_url": "https://github.com/bob-ops",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-01-02T00:00:00Z",
+      "skills": [1, 4, 6],
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$N85fxOHjoIGhePU8wsqHDi$UZ55wfLSfXts1pvfXIajafDMTpCwPw3yFE8iH4QIvkk=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "carol@test.com",
+      "name": "Кэрол",
+      "surname": "Иванова",
+      "avatar": "users/avatars/carol.png",
+      "about": "UX/UI-дизайнер. Делаю интерфейсы удобными и красивыми.",
+      "phone": "+79997778899",
+      "github_url": "https://github.com/carol-design",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-01-03T00:00:00Z",
+      "skills": [3, 5, 6],
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

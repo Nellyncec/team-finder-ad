@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Участники{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/project_list.css' %}">
+<link rel="stylesheet" href="{% static 'css/participants.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="project-container">
+    <div class="project-header">
+        <div>
+            <h1 class="project-title">Участники платформы</h1>
+            <p class="project-subtitle">Познакомьтесь с участниками и найдите единомышленников</p>
+        </div>
+    </div>
+
+    <div class="participants-filter">
+            <span class="filter-label">Фильтр по навыку:</span>
+            <div class="filter-chips">
+                {% for skill in skills %}
+                <a href="?skill={{ skill.name|urlencode }}"
+                class="filter-chip {% if active_skill == skill.name %}active{% endif %}">
+                    {{ skill.name }}
+                </a>
+                {% endfor %}
+                
+                {% if active_skill %}
+                <a href="{% url 'users:user_list' %}" class="filter-reset">Сбросить</a>
+                {% endif %}
+            </div>
+        </div>
+
+    {% if participants %}
+    <div class="participants-grid">
+        {% for participant in page_obj %}
+        <div class="participant-card">
+            <div class="participant-card-header">
+                {% if participant.avatar %}
+                    <img src="{{ participant.avatar.url }}" alt="Аватар участника" class="participant-avatar">
+                {% else %}
+                    <img src="{% static 'images/default-avatar.png' %}" alt="Аватар по умолчанию" class="participant-avatar">
+                {% endif %}
+            </div>
+            <div class="participant-info">
+                <h3 class="participant-name">{{ participant.name }} {{ participant.surname }}</h3>
+                <p class="participant-role">{{ participant.about|truncatechars:80 }}</p>
+            </div>
+            <div class="participant-card-footer">
+                <a href="/users/{{ participant.id }}" class="white-button">
+                    {% include 'includes/svg/eye.html' %} Посмотреть контакты
+                </a>
+            </div>
+        </div>
+        {% empty %}
+            <p>Пока нет пользователей</p>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page=1{% if active_skill %}&skill={{ active_skill|urlencode }}{% endif %}" class="black-button">Первая</a>
+            <a href="?page={{ page_obj.previous_page_number }}{% if active_skill %}&skill={{ active_skill|urlencode }}{% endif %}" class="black-button">Назад</a>
+        {% endif %}
+
+        <span class="page-info">
+            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}{% if active_skill %}&skill={{ active_skill|urlencode }}{% endif %}" class="black-button">Вперед</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}{% if active_skill %}&skill={{ active_skill|urlencode }}{% endif %}" class="black-button">Последняя</a>
+        {% endif %}
+    </div>
+    {% else %}
+    {% include 'includes/empty_project_card.html' with empty_title="Пока нет участников" empty_message="Попробуйте сбросить фильтр" button_link="/users/list" button_text="Сбросить" %}
+    {% endif %}
+</div>
+{% endblock %}

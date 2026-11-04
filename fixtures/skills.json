@@ -1,0 +1,32 @@
+[
+  {
+    "model": "users.skill",
+    "pk": 1,
+    "fields": { "name": "Python" }
+  },
+  {
+    "model": "users.skill",
+    "pk": 2,
+    "fields": { "name": "Django" }
+  },
+  {
+    "model": "users.skill",
+    "pk": 3,
+    "fields": { "name": "React" }
+  },
+  {
+    "model": "users.skill",
+    "pk": 4,
+    "fields": { "name": "Docker" }
+  },
+  {
+    "model": "users.skill",
+    "pk": 5,
+    "fields": { "name": "Figma" }
+  },
+  {
+    "model": "users.skill",
+    "pk": 6,
+    "fields": { "name": "PostgreSQL" }
+  }
+]
